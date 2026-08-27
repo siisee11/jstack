@@ -1,6 +1,7 @@
 # jstack
 
-한국어 글에서 AI 특유의 표현과 번역투를 줄이는 Codex 스킬입니다.
+A Codex skill that cuts AI tells and adds a human voice to writing.
+It follows the original English rules and adds Korean-specific guidance for Korean requests.
 
 스킬 정의는 [SKILL.md](./SKILL.md)에 있습니다.
 

@@ -1,57 +1,48 @@
 ---
 name: unslop
-description: 한국어 글에서 AI 특유의 표현과 번역투를 덜어내고 사람의 목소리를 살린다. 유저의 요청이 한글이면 항상 적용한다.
+description: Cut AI tells from any writing. Must always apply to Korean requests.
 ---
 
 # Unslop
 
-한국어 텍스트에서 AI 문체를 줄이고 사람이 쓴 듯한 목소리를 살린다.
+Edit text to remove AI patterns and add human voice.
 
 ## Process
 
-1. 아래 패턴을 훑는다. 단어 하나만 보고 고치지 말고 반복, 문맥, 장르를 함께 본다.
-2. 다시 쓴다. 의미, 사실, 핵심 내용, 주장 강도, 장르, 말투와 격식을 보존한다.
-3. 다음 섹션의 원칙에 따라 글쓴이의 목소리를 살린다.
-4. 자체 점검한다. "무엇이 이 글을 AI가 쓴 것처럼 보이게 하는가?" 남은 흔적을 고친다.
-5. 과윤문을 점검한다. 원문에 없던 주장, 사실, 수치, 출처, 비유, 감정을 넣지 않는다. 확신이 없으면 원문을 남긴다.
-
-## Preserve before editing
-
-- 고유명사, 제품명, 모델명, 기관명, 숫자, 날짜, 단위는 보존한다.
-- 직접 인용, 법률 조문, 수학·화학·통계 표기, 코드, URL, 파일 경로는 보존한다.
-- API, LLM, GPU, MCP, SQL, prompt, token 같은 표준 기술 용어는 기계적으로 번역하지 않는다.
-- 문장별 주어, 목적어, 보어에서 핵심 내용 명사와 개념어를 먼저 파악한다. 조사와 어미는 바꿀 수 있지만, 핵심 내용의 원형 어휘는 결과에 최소 한 번 남긴다.
-- "~해야 한다"를 "~한다"로, "~일 수 있다"를 "~이다"로 바꾸지 않는다. 당위, 추측, 유보의 강도를 보존한다.
-- 원문에 없는 비유나 감탄을 추가하지 않는다.
+1. Scan for the patterns below.
+2. Rewrite. Preserve meaning, match intended tone.
+3. Add soul (see next section).
+4. Self-audit: "What makes this obviously AI generated?" Fix remaining tells.
 
 ## Adding soul
 
-표현을 덜어내는 것만으로는 부족하다. 목소리 없는 글도 기계적으로 보인다.
+Removing patterns is half the job. Sterile, voiceless writing is just as obvious.
 
-- 의견이 필요한 장르라면 사실을 중립적으로 나열하지 말고 글쓴이의 판단을 드러낸다. 보고서나 기술 문서에 새 의견을 넣지는 않는다.
-- 문장 길이와 호흡을 섞는다. 짧은 문장 뒤에 조금 더 천천히 설명하는 문장을 둘 수 있다.
-- 복잡성을 인정한다. "인상적이다"보다 "성능은 좋지만 운영 비용도 크다"가 낫다. 단, 원문에 근거가 있을 때만 쓴다.
-- 문맥에 맞으면 "나"나 "저"를 사용한다.
-- 완벽하게 대칭인 구조를 피한다. 그렇다고 일부러 오탈자나 어색한 표현을 넣지는 않는다.
-- 추상적인 평가 대신 구체적인 사실, 행동, 수치를 쓴다.
+- **Have opinions.** React to facts instead of neutrally listing pros and cons.
+- **Vary rhythm.** Short sentences. Then longer ones that take their time. Mix it up.
+- **Acknowledge complexity.** "Impressive but also kind of unsettling" beats "impressive."
+- **Use "I" when it fits.** First person isn't unprofessional.
+- **Let some mess in.** Perfect structure looks machine-made.
+- **Be specific.** Not "this is concerning" but "there's something unsettling about agents churning away at 3am."
 
 ## Patterns to detect and fix
 
 ### Content
 
-1. **과장.** "중요한 전환점", "새로운 지평을 열다", "시대를 이끌다", "깊이 뿌리내리다", "기록을 남기다" 같은 표현을 줄인다. 실제로 일어난 일을 직접 쓴다.
-2. **이름 나열.** 매체, 기관, 기업을 맥락 없이 나열하지 않는다. 출처 하나를 고르고 무엇을 말했는지 쓴다.
-3. **정보 없는 연결어미.** "~하며", "~하면서", "~을 보여주며", "~을 강조하며", "~을 가능하게 하며", "~에 기여하며"처럼 내용을 더하지 않는 연결을 삭제하거나 구체적인 주체와 결과로 바꾼다.
-4. **홍보성 표현.** "혁신적인", "획기적인", "압도적인", "독보적인", "전례 없는", "선도적인", "활기찬", "숨이 멎을 듯한", "꼭 가봐야 할" 같은 표현은 근거가 있을 때만 남긴다.
-5. **출처 없는 주장.** "전문가들은", "업계에서는", "보고서는 시사한다", "일각에서는"처럼 출처를 숨기는 표현은 실제 출처를 쓰거나 삭제한다.
-6. **정형화된 역경 서술.** "여러 어려움에도 불구하고 계속 성장한다", "급변하는 환경 속에서 새로운 기회를 만든다" 같은 문장은 구체적인 문제와 결과로 바꾼다.
+1. **Puffery.** "pivotal moment", "testament to", "evolving landscape", "setting the stage for", "indelible mark", "deeply rooted". Cut puffery, state what happened.
+2. **Name-dropping.** Listing media outlets without context. Pick one, say what was said.
+3. **Superficial -ing phrases.** "highlighting...", "ensuring...", "reflecting...", "showcasing...", "fostering...". Delete or expand with real sources.
+4. **Promotional language.** "nestled", "vibrant", "breathtaking", "groundbreaking", "renowned", "stunning", "must-visit". Use neutral descriptions.
+5. **Vague attributions.** "Experts believe", "Industry reports suggest", "Some critics argue". Name the source or delete.
+6. **Formulaic challenges.** "Despite challenges... continues to thrive." Replace with specific facts.
 
 ### Language
 
-7. **한국어 AI 어휘와 번역투.** "또한", "나아가", "궁극적으로", "유의미한", "효과적으로", "다양한", "복합적인", "유기적인", "지속적으로", "이를 통해" 같은 단어를 금지하지는 않는다. 다만 반복되거나 구체적인 뜻 없이 쓰였으면 줄인다.
+7. **AI vocabulary.** Additionally, crucial, delve, enduring, enhance, fostering, garner, interplay, intricate, landscape (abstract), pivotal, showcase, tapestry (abstract), testament, underscore, vibrant. Replace with plain words.
 
-   다음 표현도 문맥에 맞게 간결하게 바꾼다.
+   한국어 요청에서는 다음 한국어 AI 어휘와 번역투도 점검한다. 아래 표현을 금지하지는 않지만, 반복되거나 구체적인 뜻 없이 쓰였으면 줄인다.
 
+   - "또한", "나아가", "궁극적으로", "유의미한", "효과적으로", "다양한", "복합적인", "유기적인", "지속적으로", "이를 통해"
    - "~에 대해(서)" 남발 → 목적격 조사로 직결. "X에 대해 논의" → "X를 논의"
    - "~를 통해/통하여" 반복 → "~로", "~해서", "~함으로써"로 분산
    - "~에 있어(서)" → "~에서" 또는 "~을 볼 때"
@@ -62,71 +53,49 @@ description: 한국어 글에서 AI 특유의 표현과 번역투를 덜어내�
    - "~되어진다", "~지게 된다" → "~된다" 또는 능동문
    - "~에 의해" → 행위자를 주어로. "AI에 의해 생성된" → "AI가 만든"
    - "~을 위해" 반복 → "~하려고", "~하도록", "~을 위한"
-   - 영어 원문 번역에서 "그", "그녀", "그것", "그들"이 반복되면 생략하거나 명사로 바꾼다. 원래 한국어 글에는 기계적으로 적용하지 않는다.
+   - 영어 원문을 한국어로 옮길 때 "그", "그녀", "그것", "그들"이 반복되면 생략하거나 명사로 바꾼다. 원래 한국어 글에는 기계적으로 적용하지 않는다.
    - 명사 앞에 긴 관형절이 이어지면 문장을 나누거나 뒤에서 설명한다.
    - "~에서의", "~으로부터의", "~에로의" 같은 이중 조사는 절이나 구로 풀어쓴다.
    - 한글 용어 뒤의 영어 괄호 병기는 첫 등장에만 한다. 표준 기술 용어는 통용 표기를 유지한다.
+   - 한국어 헤딩은 문장형이나 짧은 명사구로 쓴다.
+   - 한국어 글에서는 직접 인용, 용어 정의, 제목처럼 필요한 따옴표만 남긴다. 강조용 따옴표는 평어로 풀고 표기를 통일한다.
 
-8. **"이다"를 어렵게 말하기.** 단순히 "~이다", "~있다", "~한다"라고 하면 되는 곳에서 "역할을 한다", "자리매김한다", "선보인다", "보유하고 있다", "특징으로 한다", "제공한다"를 쓰지 않는다. 실제 행동을 설명할 때만 해당 동사를 쓴다. "기술이 묻는다", "시대가 요구한다"처럼 추상 주어가 행동하는 표현도 구체적인 사람, 조직, 기능으로 바꾼다.
-9. **"단순히 X가 아니라 Y" 공식.** "단순히 X를 넘어 Y", "A인가 B인가", "X뿐 아니라 Y도" 같은 대구를 반복하지 않는다. 실제 대비가 필요할 때 한 번만 쓰고 나머지는 직접 단언한다.
-10. **억지로 세 가지로 나누기.** "크게 세 가지로 나눌 수 있다", "첫째, 둘째, 셋째"를 내용상 필요할 때만 쓴다. 실제 항목 수와 자연스러운 순서를 따른다.
-11. **동의어 돌려쓰기.** 같은 대상을 문단 안에서 여러 이름으로 부르지 않는다. "주인공", "중심인물", "핵심 인물", "영웅" 중 하나를 고르고 반복한다.
-12. **의미 없는 범위 표현.** 실제 척도가 아닌데 "~부터 ~까지"라고 쓰지 않는다. 주제를 직접 나열한다.
+8. **Fancy ways to say "is".** "serves as", "stands as", "boasts", "features". Just say "is" or "has".
+9. **"Not just X, but Y."** State the point directly instead.
+10. **Rule of three.** Forcing ideas into groups of three. Use the natural number.
+11. **Synonym cycling.** Protagonist, main character, central figure, hero all in one paragraph. Pick one, repeat it.
+12. **False ranges.** "from X to Y" where X and Y aren't on a meaningful scale. List topics directly.
 
 ### Style
 
-13. **긴 대시 남발.** 긴 대시를 새로 넣지 않는다. 반복되는 부가 설명은 마침표나 쉼표로 나눈다. 하이픈이나 괄호를 긴 대시의 대체품으로 쓰지 않는다. 원문에 이미 있는 자연스러운 기호는 의미가 있을 때 보존한다.
-14. **콜론 남발.** 목록이나 예시 앞에서는 콜론을 써도 된다. 문장 중간의 연결어처럼 쓰지는 않는다. 콜론 없이 문장을 다시 쓸 수 있으면 다시 쓴다.
-15. **볼드체 남발.** 모든 고유명사, 제품명, 핵심 단어를 볼드 처리하지 않는다.
-16. **인라인 헤더 목록.** "**성능:** 성능이 향상되었다"처럼 굵은 라벨이 뒤 문장을 반복하면 일반 문장으로 합친다. 라벨 뒤에 새로운 정보가 나올 때만 유지한다.
-17. **영어식 제목 형식.** 한국어 헤딩은 문장형이나 짧은 명사구로 쓴다. 모든 단어를 같은 방식으로 꾸미거나 콜론 부제를 반복하지 않는다.
-18. **장식용 이모지.** 헤딩, 목록, 강조에 쓰인 장식용 이모지는 삭제한다.
-19. **따옴표 남발.** 직접 인용, 용어 정의, 제목처럼 필요한 따옴표만 남긴다. 강조용 따옴표는 평어로 풀고 따옴표 표기는 문서 안에서 통일한다.
+13. **Em dash overuse.** Avoid em dashes entirely. Use periods or commas only (no parentheses, no en dashes, no hyphen-as-dash substitutes). Em dashes are an AI tell, and reaching for parentheses instead just trades one tell for another. If a thought needs separation, end the sentence or use a comma.
+14. **Colon overuse.** Colons are fine before a list or example. Not as mid-sentence connectors. "If you're coming from traditional automation: instead of registering event handlers, you describe conditions" adds nothing with the colon. Rewrite to let the point stand on its own without comparison framing. "Describing when the scheduler should fire works best as plain English." Same meaning, no crutch punctuation.
+15. **Boldface overuse.** Don't bold every proper noun or acronym.
+16. **Inline-header lists.** The tell is a bold label and colon that restates the line: "**Performance:** Performance improved...". Convert those to prose. A bold lead-in that ends in a period, names the item, and is followed by genuinely new detail ("**Schema in TypeScript.** Tables live in one file.") is fine, not a tell.
+17. **Title case headings.** Use sentence case.
+18. **Decorative emojis.** Remove from headings and bullets.
+19. **Curly quotes.** Replace with straight quotes.
 
 ### Communication artifacts
 
-20. **챗봇 표현.** "도움이 되었길 바랍니다", "궁금한 점이 있으면 알려주세요", "물론입니다", "좋은 질문입니다", "정확한 지적입니다", "잘 짚으셨습니다", "제가 도와드리겠습니다", "함께 살펴보겠습니다" 같은 표현은 문맥상 꼭 필요하지 않으면 삭제한다.
-21. **정보 부족을 알리는 상투적 문장.** "구체적인 정보는 제한적이지만", "현재 공개된 정보만으로는", "자세한 내용은 알 수 없지만" 같은 문장을 습관적으로 쓰지 않는다. 실제로 중요한 제한이라면 무엇이 부족한지 구체적으로 쓴다.
-22. **과도한 맞장구.** "정말 좋은 의견입니다", "전적으로 동의합니다", "훌륭한 질문입니다"처럼 사용자에게 아첨하지 않는다. 바로 내용으로 들어간다.
+20. **Chatbot phrases.** "I hope this helps!", "Let me know if...", "Of course!", "Certainly!", "Found the smoking gun!" Remove.
+21. **Cutoff disclaimers.** "While specific details are limited..." Find sources or remove.
+22. **Sycophantic tone.** "Great question! You're absolutely right!" Respond directly.
 
 ### Filler
 
-23. **군더더기.** "~하기 위해서"는 "~하려고"나 "~하도록"으로 줄인다. "이러한 맥락에서", "무엇보다", "다시 말해", "살펴보면", "결론적으로", "한편" 같은 접속어는 흐름에 필요할 때만 남긴다.
-24. **완곡 표현 겹치기.** "~할 가능성이 있을 수 있다", "~로 보여질 수 있다", "~라고 볼 수 있을지도 모른다"는 완곡 표현 하나만 남긴다. 실제 추측과 유보는 삭제하지 않는다.
-25. **내용 없는 결론.** "미래는 밝다", "새로운 가능성을 열 것이다", "앞으로도 기대된다", "귀추가 주목된다", "지속적인 관심이 필요하다"처럼 끝내지 않는다. 구체적인 계획, 결과, 조건을 쓴다.
+23. **Filler phrases.** "In order to" becomes "To". "Due to the fact that" becomes "Because". "It is important to note that" gets deleted.
+24. **Excessive hedging.** "could potentially possibly be argued that it might" becomes "may".
+25. **Generic conclusions.** "The future looks bright." State specific plans or facts.
 
 ### Jargon
 
-26. **추상적인 비유 명사.** "생태계", "지형", "패러다임", "프레임워크", "접점", "축", "동력", "지렛대", "촉매", "발판", "청사진", "로드맵", "여정", "서사", "레버리지", "북극성", "플라이휠"을 정확한 기술적 의미 없이 쓰지 않는다.
-
-   - "API 표면" → "API가 제공하는 기능 범위"
-   - "성장의 동력" → "성장을 일으킨 요인"
-   - "새로운 여정을 시작하다" → "시작하다"
-   - "레버리지하다" → "사용하다" 또는 "활용하다"
-   - "북극성 지표" → "핵심 목표 지표"
-
-   용어가 실제 분야에서 정의된 개념이면 보존한다. 비유로 썼다면 기능, 방법, 범위, 원인, 목표처럼 구체적인 말로 바꾼다.
+26. **Abstract metaphor nouns.** Substrate, wedge, vector, locus, vantage, nexus, primitive (as noun), harness (as metaphor), surface (as in "API surface"), bedrock, scaffolding (as metaphor), modality, paradigm, gold-plating, ratchet (as metaphor), evacuate (for moving code), endgame, north star, flywheel. These read as technical but usually have a plainer concrete word. "Substrate" becomes "base". "Wedge in" becomes "add". "Vector" becomes "way" or "method". "Gold-plating" becomes "more than the job needs". "Ratchet" becomes the mechanism's real name or "a limit that only tightens". "Evacuate" becomes "move out". "Endgame" becomes "the last phase". Pick the concrete word.
 
 ### Plain speech
 
-27. **느낌이 아니라 작동 방식을 쓴다.** "사용자 경험을 한층 높인다", "데이터베이스가 가까이 있다", "읽기 쉬운 SQL", "스키마를 따르는 타입"처럼 인상을 말하지 않는다. 문장이 독자에게 무엇을 알리거나 하게 하는지 구체적으로 쓴다.
-
-   - `` `.toSQL()`은 데이터베이스에 보낼 문자열을 그대로 반환한다. ``
-   - `` `컬럼 이름을 바꾸면 빌드가 실패한다.` ``
-
-   다른 프로젝트 문서에도 그대로 들어갈 수 있는 문장은 구체화하거나 삭제한다.
-
-28. **긴 문장을 줄이거나 나눈다.** 독자가 문장을 다시 읽어야 하면 문장을 나누거나 절을 덜어낸다. 한 문장에 한 가지 핵심만 둔다.
-29. **능동태.** 가능하면 행위자를 주어로 쓴다. "쿼리가 검증된다"는 "컴파일러가 쿼리를 검증한다"로, "파일이 로더에 의해 파싱된다"는 "로더가 파일을 파싱한다"로 바꾼다. 행위자를 모르거나 중요하지 않으면 피동태를 유지한다.
-30. **부사를 줄이거나 동사를 바꾼다.** "매우 빠르게 실행된다", "상당히 크게 개선된다", "효과적으로 활용한다"처럼 약한 동사를 부사로 꾸미지 않는다. 더 정확한 동사나 수치가 있으면 그것을 쓴다.
-31. **쉬운 말을 고른다.** "활용하다"는 "사용하다", "도모하다"는 "돕다"나 실제 행동, "제고하다"는 "높이다", "수행하다"는 "하다", "다수의"는 "많은", "~하는 경우"는 "~하면"으로 바꾼다. 다만 문서의 장르와 격식에 맞는 표현은 보존한다.
-
-## Self-audit
-
-- 고유명사, 수치, 날짜, 인용, 코드, URL, 핵심 내용 앵커가 사라지지 않았는가?
-- "~해야 한다", "~일 수 있다", "~로 보인다" 같은 주장 강도를 바꾸지 않았는가?
-- 원문에 없던 주장, 사실, 비유, 출처, 감정을 넣지 않았는가?
-- 문장 종결과 접속어가 지나치게 반복되지 않는가?
-- 영어 번역투와 한국어 AI 관용구가 남아 있지 않은가?
-- 원문보다 훨씬 많이 고쳤다면 과윤문으로 보고 원문에 가깝게 되돌린다.
-- 확신이 없는 수정은 하지 않는다.
+27. **Say what it does, not how it feels.** "the database stays close at hand", "SQL you can read", "types that follow your schema" name a feeling. The fix names the mechanism or a number: "`.toSQL()` returns the exact string sent to the database", "a column rename fails the build". Ask what the sentence tells the reader to do or know, then write that. If you can't restate it as a concrete instruction, fact, or number, cut it. One more check: if the sentence could appear unchanged in another project's docs, it says nothing about this one. Cut it.
+28. **Shorten or split dense sentences.** If the reader has to backtrack to parse a sentence, break it in two or drop clauses. One idea per sentence.
+29. **Active voice.** Prefer it. Catch "is/are/was/were + past participle" and name the actor: "queries are validated" becomes "the compiler validates queries", "the file is parsed by the loader" becomes "the loader parses the file". Passive is fine only when the actor is unknown or genuinely doesn't matter.
+30. **Cut adverbs, or use a stronger verb.** "runs quickly" becomes "is fast" or the number. "significantly improves" becomes the measured delta. An adverb propping up a weak verb means the verb is wrong.
+31. **Prefer the plain word.** "utilize" becomes "use", "leverage" becomes "use", "facilitate" becomes "help", "numerous" becomes "many", "in the event that" becomes "if". The fancier synonym is rarely clearer.
