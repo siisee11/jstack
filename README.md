@@ -8,6 +8,8 @@ Each skill lives in its own directory under [skills/](./skills/). The first incl
 | --- | --- |
 | [unslop](./skills/unslop/) | Removing AI tells and adding a human voice to writing |
 
+`unslop` is based on [pstack's unslop skill](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop), with Korean-specific tuning added. The original English rules remain primary.
+
 ## Repository layout
 
 Each skill is self-contained and can include its instructions and UI metadata:
