@@ -1,0 +1,20 @@
+{
+  "name": "jstack",
+  "displayName": "jstack",
+  "version": "0.1.0",
+  "description": "A collection of j's skills for clear, human writing and rigorous work.",
+  "author": {
+    "name": "j"
+  },
+  "homepage": "https://github.com/siisee11/jstack",
+  "repository": "https://github.com/siisee11/jstack",
+  "license": "MIT",
+  "keywords": [
+    "jstack",
+    "skills",
+    "unslop",
+    "writing"
+  ],
+  "category": "developer-tools",
+  "skills": "./skills/"
+}
